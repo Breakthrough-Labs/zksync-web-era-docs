@@ -24,6 +24,20 @@ export default defineClientConfig({
             })
           }
         document.head.appendChild(rudderSDK)
+
+        const cookbookScript = document.createElement('script');
+        cookbookScript.src = `https://cookbook-docsbot-staging.vercel.app/docsbot.min.js`;
+        document.head.appendChild(cookbookScript);
+
+        const cookbookStyles = document.createElement('link');
+        cookbookStyles.rel = 'stylesheet';
+        cookbookStyles.href = `https://cookbook-docsbot-staging.vercel.app/docsbot.css`;
+        document.head.prepend(cookbookStyles);
+
+        const cookbookContainer = document.createElement('div');
+        cookbookContainer.id = '__cookbook';
+        cookbookContainer.setAttribute('data-api-key', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40");
+        document.body.appendChild(cookbookContainer);
       })
     }; 
   }
