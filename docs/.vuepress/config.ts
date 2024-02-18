@@ -27,7 +27,7 @@ export default defineUserConfig({
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }],
     ["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" }],
-    // ["link", { rel: "stylesheet", href: "https://cookbook-docsbot-staging.vercel.app/docsbot.css" }],
+    ["link", { rel: "stylesheet", href: "https://cookbook-docsbot-staging.vercel.app/docsbot.css" }],
     [
       "meta",
       {
@@ -85,6 +85,15 @@ export default defineUserConfig({
       {},
       `
       window.addEventListener('load', function() {
+        const cookbookContainer = document.createElement('div');
+        cookbookContainer.id = '__cookbook';
+        cookbookContainer.setAttribute('data-api-key', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40");
+        document.body.appendChild(cookbookContainer);
+
+        const cookbookScript = document.createElement('script');
+        cookbookScript.src = 'https://cookbook-docsbot-staging.vercel.app/docsbot.min.js';
+        document.head.appendChild(cookbookScript);
+
         let contributors = document.querySelectorAll('.contributor');
         let contributorArr = Array.from(contributors);
         let topFive = contributorArr.slice(0, 5);
@@ -94,7 +103,9 @@ export default defineUserConfig({
         });
       
         let lastComma = contributorArr[4];
+        if (lastComma) {
         lastComma.textContent = lastComma.textContent.replace(',', '');
+        }
       
         let updatedList = topFive.map(function(contributor) {
           return contributor.textContent;
@@ -102,20 +113,6 @@ export default defineUserConfig({
           
         let contributorsDiv = document.querySelector('.contributors');
         contributorsDiv.innerHTML = '<span class="label">Contributors: </span>' + updatedList;
-      
-        const cookbookStyles = document.createElement('link');
-        cookbookStyles.rel = 'stylesheet';
-        cookbookStyles.href = 'https://cookbook-docsbot-staging.vercel.app/docsbot.css';
-        document.head.prepend(cookbookStyles);
-
-        const cookbookContainer = document.createElement('div');
-        cookbookContainer.id = '__cookbook';
-        cookbookContainer.setAttribute('data-api-key', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40");
-        document.body.appendChild(cookbookContainer);
-
-        const cookbookScript = document.createElement('script');
-        cookbookScript.src = 'https://cookbook-docsbot-staging.vercel.app/docsbot.min.js';
-        document.head.appendChild(cookbookScript);
       });
 
       `,
