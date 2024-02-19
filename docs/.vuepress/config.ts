@@ -4,12 +4,11 @@ import vue from "@vitejs/plugin-vue";
 import theme from "./theme.js";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
 import { getDirname, path } from "@vuepress/utils";
-import * as dotenv from 'dotenv'
+import * as dotenv from "dotenv";
 import { seoPlugin } from "vuepress-plugin-seo2";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 
-dotenv.config()
-
+dotenv.config();
 
 const dirname = getDirname(import.meta.url);
 
@@ -38,7 +37,11 @@ export default defineUserConfig({
     ],
     [
       "meta",
-      { name: "description", content: "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification." },
+      {
+        name: "description",
+        content:
+          "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification.",
+      },
     ],
     ["meta", { name: "author", content: "https://matter-labs.io" }],
 
@@ -52,7 +55,8 @@ export default defineUserConfig({
       "meta",
       {
         name: "og:description",
-        content: "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification.",
+        content:
+          "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification.",
       },
     ],
     ["meta", { name: "twitter:card", content: "summary" }],
@@ -61,7 +65,8 @@ export default defineUserConfig({
       "meta",
       {
         name: "twitter:description",
-        content: "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification.",
+        content:
+          "zkSync Docs bring you all information you need about our protocol, APIs, SDKs, ZK Stack, and hyperchains. Start with our guides and tutorials, or go deep into our architecture and protocol specification.",
       },
     ],
     ["meta", { name: "twitter:image", content: "https://docs.zksync.io/share_image.png" }],
@@ -80,20 +85,74 @@ export default defineUserConfig({
     ["meta", { name: "theme-color", content: "#1755F4" }],
     ["meta", { name: "ahrefs-site-verification", content: "e7c4ecad46da6b349bd70530fe8c272d23dae4ec3095852db8a68155ce87324e" }],
 
+    // [
+    //   "script",
+    //   {},
+    //   `
+    //   setTimeout(function () {
+    //     const cookbookContainer = document.createElement("div");
+    //     cookbookContainer.id = "__cookbook";
+    //     cookbookContainer.setAttribute(
+    //       "data-api-key",
+    //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
+    //     );
+    //     document.body.appendChild(cookbookContainer);
+
+    //     const hmrScript = document.createElement("script");
+    //     hmrScript.type = "module";
+    //     hmrScript.innerHTML = \`
+    //       import RefreshRuntime from "http://localhost:5003/@react-refresh"
+    //       RefreshRuntime.injectIntoGlobalHook(window)
+    //       window.$RefreshReg$ = () => {}
+    //       window.$RefreshSig$ = () => (type) => type
+    //       window.__vite_plugin_react_preamble_installed__ = true
+    //     \`;
+    //     document.head.appendChild(hmrScript);
+
+    //     const hmrScript2 = document.createElement("script");
+    //     hmrScript2.src = "http://localhost:5003/@vite/client";
+    //     hmrScript2.type = "module";
+    //     document.head.appendChild(hmrScript2);
+
+    //     // styles are injected in main.tsx so no need to add them in dev mode
+    //     const cookbookScript = document.createElement("script");
+    //     cookbookScript.src = "http://localhost:5003/src/main.tsx";
+    //     cookbookScript.type = "module";
+    //     document.head.appendChild(cookbookScript);
+    //   }, 1000);
+    //   `,
+    // ],
+    [
+      "script",
+      {},
+      `
+      setTimeout(function () {
+        const cookbookContainer = document.createElement("div");
+        cookbookContainer.id = "__cookbook";
+        cookbookContainer.setAttribute(
+          "data-api-key",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
+        );
+        document.body.appendChild(cookbookContainer);
+      
+        const cookbookStyles = document.createElement("link");
+        cookbookStyles.rel = "stylesheet";
+        cookbookStyles.href =
+          "https://cookbook-docsbot-staging.vercel.app/docsbot.css";
+        document.head.appendChild(cookbookStyles);
+      
+        const cookbookScript = document.createElement("script");
+        cookbookScript.src =
+          "https://cookbook-docsbot-staging.vercel.app/docsbot.min.js";
+        document.head.appendChild(cookbookScript);
+      }, 1000);
+    `,
+    ],
     [
       "script",
       {},
       `
       window.addEventListener('load', function() {
-        const cookbookContainer = document.createElement('div');
-        cookbookContainer.id = '__cookbook';
-        cookbookContainer.setAttribute('data-api-key', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40");
-        document.body.appendChild(cookbookContainer);
-
-        const cookbookScript = document.createElement('script');
-        cookbookScript.src = 'https://cookbook-docsbot-staging.vercel.app/docsbot.min.js';
-        document.head.appendChild(cookbookScript);
-
         let contributors = document.querySelectorAll('.contributor');
         let contributorArr = Array.from(contributors);
         let topFive = contributorArr.slice(0, 5);
