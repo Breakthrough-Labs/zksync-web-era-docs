@@ -26,7 +26,7 @@ export default defineUserConfig({
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }],
     ["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" }],
-    ["link", { rel: "stylesheet", href: "https://cookbook-docsbot-staging.vercel.app/docsbot.css" }],
+    // ["link", { rel: "stylesheet", href: "https://cookbook-docsbot-staging.vercel.app/docsbot.css" }],
     [
       "meta",
       {
@@ -90,35 +90,37 @@ export default defineUserConfig({
     //   {},
     //   `
     //   setTimeout(function () {
-    //     const cookbookContainer = document.createElement("div");
-    //     cookbookContainer.id = "__cookbook";
-    //     cookbookContainer.setAttribute(
-    //       "data-api-key",
-    //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
-    //     );
-    //     document.body.appendChild(cookbookContainer);
+    //     if (window && !window.document.getElementById("__cookbook")) {
+    //       const cookbookContainer = document.createElement("div");
+    //       cookbookContainer.id = "__cookbook";
+    //       cookbookContainer.setAttribute(
+    //         "data-api-key",
+    //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
+    //       );
+    //       document.body.appendChild(cookbookContainer);
 
-    //     const hmrScript = document.createElement("script");
-    //     hmrScript.type = "module";
-    //     hmrScript.innerHTML = \`
-    //       import RefreshRuntime from "http://localhost:5003/@react-refresh"
-    //       RefreshRuntime.injectIntoGlobalHook(window)
-    //       window.$RefreshReg$ = () => {}
-    //       window.$RefreshSig$ = () => (type) => type
-    //       window.__vite_plugin_react_preamble_installed__ = true
-    //     \`;
-    //     document.head.appendChild(hmrScript);
+    //       const hmrScript = document.createElement("script");
+    //       hmrScript.type = "module";
+    //       hmrScript.innerHTML = \`
+    //         import RefreshRuntime from "http://localhost:5003/@react-refresh"
+    //         RefreshRuntime.injectIntoGlobalHook(window)
+    //         window.$RefreshReg$ = () => {}
+    //         window.$RefreshSig$ = () => (type) => type
+    //         window.__vite_plugin_react_preamble_installed__ = true
+    //       \`;
+    //       document.head.appendChild(hmrScript);
 
-    //     const hmrScript2 = document.createElement("script");
-    //     hmrScript2.src = "http://localhost:5003/@vite/client";
-    //     hmrScript2.type = "module";
-    //     document.head.appendChild(hmrScript2);
+    //       const hmrScript2 = document.createElement("script");
+    //       hmrScript2.src = "http://localhost:5003/@vite/client";
+    //       hmrScript2.type = "module";
+    //       document.head.appendChild(hmrScript2);
 
-    //     // styles are injected in main.tsx so no need to add them in dev mode
-    //     const cookbookScript = document.createElement("script");
-    //     cookbookScript.src = "http://localhost:5003/src/main.tsx";
-    //     cookbookScript.type = "module";
-    //     document.head.appendChild(cookbookScript);
+    //       // styles are injected in main.tsx so no need to add them in dev mode
+    //       const cookbookScript = document.createElement("script");
+    //       cookbookScript.src = "http://localhost:5003/src/main.tsx";
+    //       cookbookScript.type = "module";
+    //       document.head.appendChild(cookbookScript);
+    //     }
     //   }, 1000);
     //   `,
     // ],
@@ -126,26 +128,28 @@ export default defineUserConfig({
       "script",
       {},
       `
-      setTimeout(function () {
-        const cookbookContainer = document.createElement("div");
-        cookbookContainer.id = "__cookbook";
-        cookbookContainer.setAttribute(
-          "data-api-key",
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
-        );
-        document.body.appendChild(cookbookContainer);
-      
-        const cookbookStyles = document.createElement("link");
-        cookbookStyles.rel = "stylesheet";
-        cookbookStyles.href =
-          "https://cookbook-docsbot-staging.vercel.app/docsbot.css";
-        document.head.appendChild(cookbookStyles);
-      
-        const cookbookScript = document.createElement("script");
-        cookbookScript.src =
-          "https://cookbook-docsbot-staging.vercel.app/docsbot.min.js";
-        document.head.appendChild(cookbookScript);
-      }, 1000);
+      if (window && !window.document.getElementById("__cookbook")) {
+        setTimeout(function () {
+          const cookbookContainer = document.createElement("div");
+          cookbookContainer.id = "__cookbook";
+          cookbookContainer.setAttribute(
+            "data-api-key",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWNlNzUwZmZiMDBlZWUyNThjNmUxMjkiLCJpYXQiOjE3MDgwMjkxOTksImV4cCI6MjAyMzYwNTE5OX0.vrpJUZNG2jBFegOyENxgLJfStfyP7R1sQYE_I4XNo40"
+          );
+          document.body.appendChild(cookbookContainer);
+
+          const cookbookStyles = document.createElement("link");
+          cookbookStyles.rel = "stylesheet";
+          cookbookStyles.href =
+            "https://cookbook-docsbot-staging.vercel.app/docsbot.css";
+          document.head.appendChild(cookbookStyles);
+
+          const cookbookScript = document.createElement("script");
+          cookbookScript.src =
+            "https://cookbook-docsbot-staging.vercel.app/docsbot.min.js";
+          document.head.appendChild(cookbookScript);
+        }, 1000);
+      }
     `,
     ],
     [
