@@ -26,7 +26,6 @@ export default defineUserConfig({
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }],
     ["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" }],
-    // ["link", { rel: "stylesheet", href: "https://cookbook-docsbot-staging.vercel.app/docsbot.css" }],
     [
       "meta",
       {
@@ -138,15 +137,9 @@ export default defineUserConfig({
           );
           document.body.appendChild(cookbookContainer);
 
-          const cookbookStyles = document.createElement("link");
-          cookbookStyles.rel = "stylesheet";
-          cookbookStyles.href =
-            "https://cookbook-docsbot-staging.vercel.app/docsbot.css";
-          document.head.appendChild(cookbookStyles);
-
           const cookbookScript = document.createElement("script");
           cookbookScript.src =
-            "https://cookbook-docsbot-staging.vercel.app/docsbot.min.js";
+            "https://docsbot-standalone-git-develop-cookbookdev.vercel.app/docsbot.min.js";
           document.head.appendChild(cookbookScript);
         }, 1000);
       }
